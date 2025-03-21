@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Tempo Completo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-width: 300px;
+        }
+
+        .clock {
+            font-size: 2.5em;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .controls {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #3498db;
+            color: white;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            width: 60px;
+            margin: 5px;
+        }
+
+        .alarm-active {
+            background: #ff4757 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Relógio Digital -->
+    <div class="box">
+        <div class="clock" id="clock">00:00:00</div>
+    </div>
+
+    <!-- Cronômetro -->
+    <div class="box">
+        <div class="clock" id="stopwatch">00:00:00.00</div>
+        <div class="controls">
+            <button onclick="startStopwatch()" id="startStop">Iniciar</button>
+            <button onclick="resetStopwatch()">Resetar</button>
+        </div>
+    </div>
+
+    <!-- Despertador -->
+    <div class="box">
+        <div class="clock" id="alarmDisplay">--:--</div>
+        <div class="controls">
+            <input type="number" id="alarmHr" min="0" max="23" placeholder="Hr">
+            <input type="number" id="alarmMin" min="0" max="59" placeholder="Min">
+            <button onclick="toggleAlarm()" id="alarmBtn">Ativar Alarme</button>
+        </div>
+    </div>
+
+    <!-- Temporizador -->
+    <div class="box">
+        <div class="clock" id="timerDisplay">00:00</div>
+        <div class="controls">
+            <input type="number" id="timerMin" min="0" placeholder="Min">
+            <input type="number" id="timerSec" min="0" max="59" placeholder="Seg">
+            <button onclick="startTimer()">Iniciar</button>
+            <button onclick="resetTimer()">Resetar</button>
+        </div>
+    </div>
+
+    <audio id="alarmSound" src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAP
